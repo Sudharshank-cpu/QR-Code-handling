@@ -1,8 +1,8 @@
 import cv2, webbrowser
-detector = cv2.QRCodeDetector()
 choice = input("Do You want to use Camera?(Y/N)[Default=No]: ");
 if choice in 'yY':
     captures = cv2.VideoCapture(0)
+    detector = cv2.QRCodeDetector()
     print("Press the Button 'q' to EXIT",flush=True)
     while True:
         _, image = captures.read()
@@ -11,7 +11,7 @@ if choice in 'yY':
             print(str(data),flush=True)
             break
         cv2.imshow("QR Code Scanner by Sudhanex", image)
-        if cv2.waitKey(1) == ord('q') or cv2.waitKey(30) == 27:
+        if cv2.waitKey(1) == ord('q'):
             break
     captures.release()
     cv2.destroyAllWindows()
